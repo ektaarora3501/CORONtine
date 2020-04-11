@@ -1,0 +1,127 @@
+.image-box {
+    position: relative;
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+.image-box__background,
+.image-box__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.image-box__background {
+    background: var(--image-url) center center no-repeat;
+    opacity: 0.7;
+    background-size: cover;
+    z-index: 1
+}
+
+.image-box__overlay {
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 2;
+}
+
+.image-box__content {
+    position: relative;
+
+    z-index: 3;
+
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#warning img{
+    position:absolute;
+    left:0;
+    right:0;
+    margin:0 auto;
+   }
+
+   @keyframes warningFadeInOut {
+    0% {transform: scale(1);}
+    25% {transform: scale(.97);}
+    35% {transform: scale(.9);}
+    45% {transform: scale(1.1);}
+    55% {transform: scale(.9);}
+    65% {transform: scale(1.1);}
+    75% {transform: scale(1.03);}
+    100% {transform: scale(1);}
+  }
+
+  #warning img.bottom {
+    animation-name: warningFadeInOut;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+  }
+
+.image-box {
+    position: relative;
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+.image-box__background,
+.image-box__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.image-box__background {
+    background: var(--image-url) center center no-repeat;
+    opacity: 0.7;
+    background-size: cover;
+    z-index: 1
+}
+
+.image-box__overlay {
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 2;
+}
+
+.image-box__content {
+    position: relative;
+
+    z-index: 3;
+
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#warning img{
+    position:absolute;
+    left:0;
+    right:0;
+    margin:0 auto;
+   }
+
+   @keyframes warningFadeInOut {
+    0% {transform: scale(1);}
+    25% {transform: scale(.97);}
+    35% {transform: scale(.9);}
+    45% {transform: scale(1.1);}
+    55% {transform: scale(.9);}
+    65% {transform: scale(1.1);}
+    75% {transform: scale(1.03);}
+    100% {transform: scale(1);}
+  }
+
+  #warning img.bottom {
+    animation-name: warningFadeInOut;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+  }

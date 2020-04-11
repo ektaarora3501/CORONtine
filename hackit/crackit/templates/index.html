@@ -1,0 +1,282 @@
+
+<!-- Copyright notice..
+The work, code and algorithm belongs to team Dev.ino .The team must be acknowledged for use of any portion of the project/code . The team Dev.ino reserves all rights on the code and the dataset .
+We would be happy to mention https://github.com/ieee8023/covid-chestxray-dataset for their dataset for Chest X-Ray model creation
+
+Team Dev.ino
+Developers
+Krishna Ojha
+Ekta Arora
+ -->
+
+
+
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>CORONtine</title>
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free-5.8.1-web/css/all.css' %}">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet">
+</head>
+
+<script type="text/javascript">
+
+ var a = {{ data }};
+
+ if (a){
+
+       setTimeout(openUrl, 2000);
+       function openUrl(){
+
+         window.open('http://127.0.0.1:8000/devino/chest_scan',"_self");
+
+              }
+       }
+
+</script>
+
+<body>
+
+  <!-- Navigation Menu -->
+  <div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container">
+
+        <a href="#" class="navbar-brand">
+          <i><img src="{% static 'images/imgs/CORONtine_icon.svg' %}" alt="CORONtine" class="logo_brand"></i>
+          CORONtine</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+
+              <a href="#home" class="nav-link">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#dashboard" class="nav-link">
+                <i class="fas fa-chart-bar"></i> Dashboard</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#developers" class="nav-link">
+                <i class="far fa-address-card"></i>
+                Developers</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                <i class="fas fa-file-alt"></i> Docs</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- ./Navigation menu -->
+
+
+
+  <!-- Home Section -->
+  <div class="view home" id="home" style="background-image: url('{% static 'imgs/bg.jpg' %}'); background-repeat: no-repeat;background-size:cover;
+	background-position: center;
+	height: 80vh;
+	width: 100%;";>
+    <div class="flex-center" style="background: rgba(0,0,0,0.7);">
+        <img src="{% static 'images/imgs/CORONtine.png'%}" alt="CORONtine">
+    </div>
+</div>
+  <!-- ./Home Section -->
+
+<div style="background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)), url('{% static 'imgs/bg_dev.png' %}')";>
+  <!-- Dashboard Section -->
+  <div id="dashboard" class="bg-light">
+    <!-- Title part -->
+    <div class="row py-3 px-5 text-white bg-dark">
+      <h2><i class="fas fa-chart-bar"></i> Dashboard</h2>
+    </div>
+    <!-- ./Title Part -->
+
+    <!-- Active Buttons -->
+    <div class="row">
+      <!-- Scan Button -->
+      <div class="col-md-6">
+        <a href="{% url 'detection' %}" class="btn d-block" id="scan_btn" type="button"><i class="fab fa-cloudscale fa-3x"></i> <span class="btn_text">Scan</span></a>
+      </div>
+      <!-- Stats Button -->
+      <div class="col-md-6">
+        <a href="#" class="btn d-block"  type="button"><i class="fas fa-project-diagram fa-3x"></i> <span class="btn_text">Stats</span></a>
+      </div>
+    </div>
+    <!-- ./Active Buttons -->
+
+    <!-- Scanning Parameters -->
+    <div class="row"> <!-- Parent Row -->
+
+      <div class="col-xl-3" id="parameters">  <!-- Nested parent column -->
+
+        <div class="row"><button type="button" id="btn-one" class="btn"> Scanning</button></div>
+        <div class="row"><button type="button" id="btn-one" class="btn" id="btn-prm">Temperature&nbsp;&nbsp;&nbsp;&nbsp;<span class="btn-prm"></span></button></div>
+        <div class="row"><button type="button" id="btn-one" class="btn" id="btn-prm">Coughing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="btn-prm"></span></button></div>
+        <div class="row"><button type="button" id="btn-one" class="btn" id="btn-prm">Running Nose&nbsp;&nbsp;&nbsp;<span class="btn-prm"></span></button></div>
+        <div class="row"><button type="button" id="btn-one" class="btn" id="btn-prm">Chest X-Ray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="btn-prm"></span></button></div>
+
+      </div>                          <!-- ./Nested parent column -->
+
+ <!-- changing background image according to the scanning -->
+
+      {% if data %}
+          <div class="com-xl-9" id="main_area">          <!-- Main area column -->
+           <div class="view bg-dark">
+           Scanning chest ... please stay still
+        </div>
+      </div>
+
+    {% else %}
+
+    <!-- conditions after chest scan -->
+            {% if val %}
+            <div class="com-xl-9" id="main_area";>          <!-- Main area column -->
+              <div class="view">
+
+                <img src="{% static 'images/imgs/quarantine.png' %}">
+                </div>
+                </div>
+
+                {% else %}
+                <div class="com-xl-9" id="main_area";>          <!-- Main area column -->
+                  <div class="view">
+                    <img src="{% static 'images/imgs/devino.png' %}">
+
+                  </div>
+                </div>
+             {% endif %}
+
+    {% endif %}                      <!-- Main area column -->
+
+    </div>          <!-- ./Parent Row -->
+    <!-- Scanning Parameters -->
+
+  </div>
+  <!-- ./Dashboard Section -->
+
+  <!-- Developers section -->
+  <div class="container-fluid" id="developers">
+    <div class="row p-5">
+      <h1 style="color: #7fbf73;">Developers</h1>
+    </div>
+    <div class="row">
+
+      <!-- Ekta-->
+      <div class="col-4 mx-auto">
+        <div class="card card-cascade wider">
+
+          <!-- Card image -->
+          <div class="view view-cascade overlay">
+            <img class="card-img-top" src="{% static 'images/imgs/Developers/ekta.jpg' %}" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body card-body-cascade text-center">
+
+            <!-- Title -->
+            <h4 class="card-title"><strong>Ekta Arora</strong></h4>
+            <!-- Subtitle -->
+            <h5 class="blue-text pb-2"><strong>ML Enthusiast and Backend Developer</strong></h5>
+            <!-- Text -->
+            <p class="card-text">A Pythonists working on creating cool stuffs . Believe in learning deep even for machines. I am interested in IOT and its integration with ML </p>
+
+            <!-- Linkedin -->
+            <a class="px-2 fa-lg li-ic" href="https://www.linkedin.com/in/ekta-arora-5a264b176/"><i class="fab fa-linkedin-in"></i></a>
+            <!-- Twitter -->
+            <a class="px-2 fa-lg tw-ic" href="https://twitter.com/aroraekta351"><i class="fab fa-twitter"></i></a>
+            <!-- Github -->
+            <a class="px-2 fa-lg gb-ic" href="https://github.com/ektaarora3501/"><i class="fab fa-github"></i></a>
+            <!-- Instagram -->
+            <a class="px-2 fa-lg ig-ic"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- ./Ekta -->
+
+      <!-- Krishna -->
+      <div class="col-4 mx-auto my-auto">
+        <div class="card card-cascade wider">
+
+          <!-- Card image -->
+          <div class="view view-cascade overlay">
+            <img class="card-img-top" src="{%static 'images/imgs/Developers/krishna.jpg'%}" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body card-body-cascade text-center">
+
+            <!-- Title -->
+            <h4 class="card-title"><strong>Krishna Ojha</strong></h4>
+            <!-- Subtitle -->
+            <h5 class="blue-text pb-2"><strong>Hardware Enthusiast and Frontend Developer</strong></h5>
+            <!-- Text -->
+            <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
+              laudantium, totam rem aperiam. </p>
+
+            <!-- Linkedin -->
+            <a class="px-2 fa-lg li-ic" href="https://www.linkedin.com/in/krishnaojha02/"><i class="fab fa-linkedin-in"></i></a>
+            <!-- Twitter -->
+            <a class="px-2 fa-lg tw-ic" href="https://twitter.com/KrishnaOjha02"><i class="fab fa-twitter"></i></a>
+            <!-- Github -->
+            <a class="px-2 fa-lg gb-ic" href="https://github.com/coder-KO/"><i class="fab fa-github"></i></a>
+            <!-- Instagram -->
+            <a class="px-2 fa-lg ig-ic"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- ./Krishna -->
+    </div>
+    <div class="row my-lg-5"></div>
+  </div>
+  <!-- ./Developers Section -->
+
+  <!-- Footer Section -->
+    <footer class="my-0 bg-light">
+      <h3 class="text-center my-4 py-4" style="color: #212121;">&copy; Dev.ino</h3>
+    </footer>
+    <!-- ./Footer Section -->
+  </div>
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'js/mdb.min.js'%}"></script>
+    <!-- Custom Javascript -->
+    <script type="text/javascript" src="{% static 'js/custom.js'%}"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+/* #7fbf73 - green */
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+html, body{
+	margin: 0;
+}
+.logo_brand{
+	margin-top: -5px;
+	height: 30px;
+	width: 30px;
+}
+
+#menu ul li a:hover{
+	background-color: forestgreen;
+	color:white;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px){
+	[class*="col-"]{
+		width: 100%;
+	}
+}
+
+.home{
+	/* background-image: url('/img/bg.jpg');  */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 80vh;
+	width: 100%;
+}
+.view{
+	background: rgba(0,0,0,0.5);
+}
+.view div img{
+	height: 300px;
+	width: 300px;
+}
+
+.container{
+	width: 100%;
+}
+
+#dashboard{
+	height: 100vh;
+}
+.btn{
+	background-color: #212121;
+	color: #7fbf73;
+	margin: 10px 20px 10px 20px;
+	border-radius: 10px;
+}
+.btn:hover{
+	background-color: #7fbf73;
+	color: #212121;
+}
+.btn_text{
+	font-size: 34px;
+}
+
+#parameters{
+	margin-left: 40px;
+}
+#main_area{
+	width: 70%;
+	height: 80vh;
+	margin-right: 20px;
+	border-radius: 10px;
+	background-color: #212121;
+}
+#main_area img{
+	margin: auto;
+	margin-top: 10%;
+	height: 40vh;
+	width: auto;
+}
+
+#btn-one{
+	width: 100%;
+	height: 10vh;
+	margin-left: 0;
+	margin-top: 20px;
+	background-color: #212121;
+	color: #7fbf73;
+	font-size: larger;
+}
+
+#developer{
+	height: 80vh;
+}
+#developers h1{
+	margin: auto;
+	font-family: 'Acme', sans-serif;
+}
+
+footer{
+	color: #212121;
+}
+footer img{
+	height: 60px;
+	width: 80px;
+}
