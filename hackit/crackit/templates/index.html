@@ -1,13 +1,19 @@
 
-<!-- Copyright notice..
-The work, code and algorithm belongs to team Dev.ino .The team must be acknowledged for use of any portion of the project/code . The team Dev.ino reserves all rights on the code and the dataset .
-We would be happy to mention https://github.com/ieee8023/covid-chestxray-dataset for their dataset for Chest X-Ray model creation
+<!--------------------------------------------------
+*Copyright Notice*
+The work, code and algorithm belongs to team Dev.ino.
+The team must be acknowledged for use of any portion 
+of the project/code. The team Dev.ino reserves all 
+rights on the code and the dataset .
+We would be happy to mention 
+https://github.com/ieee8023/covid-chestxray-dataset 
+for their dataset for Chest X-Ray model creation
 
 Team Dev.ino
 Developers
-Krishna Ojha
-Ekta Arora
- -->
+:Krishna Ojha
+:Ekta Arora
+----------------------------------------------------->
 
 
 
@@ -35,17 +41,17 @@ Ekta Arora
 
 <script type="text/javascript">
 
- var a = {{ data }};
+  var a = {{ data }};
 
- if (a){
+  if (a){
 
-       setTimeout(openUrl, 2000);
-       function openUrl(){
+      setTimeout(openUrl, 2000);
+      function openUrl(){
 
-         window.open('http://127.0.0.1:8000/devino/chest_scan',"_self");
+        window.open('http://127.0.0.1:8000/devino/chest_scan',"_self");
 
               }
-       }
+  }
 
 </script>
 
@@ -143,9 +149,9 @@ Ekta Arora
  <!-- changing background image according to the scanning -->
 
       {% if data %}
-          <div class="com-xl-9" id="main_area">          <!-- Main area column -->
-           <div class="view bg-dark">
-           Scanning chest ... please stay still
+          <div class="com-xl-9" id="main_area" style="height: 70vh; border-radius: 20px;";>          <!-- Main area column -->
+          <div class="view bg-dark">
+          Scanning chest ... please stay still
         </div>
       </div>
 
@@ -153,16 +159,16 @@ Ekta Arora
 
     <!-- conditions after chest scan -->
             {% if val %}
-            <div class="com-xl-9" id="main_area";>          <!-- Main area column -->
-              <div class="view">
+            <div class="com-xl-9" id="main_area"; style="height: 70vh; border-radius: 20px;";>          <!-- Main area column -->
+              <div class="view bg-dark">
 
                 <img src="{% static 'images/imgs/quarantine.png' %}">
                 </div>
                 </div>
 
                 {% else %}
-                <div class="com-xl-9" id="main_area";>          <!-- Main area column -->
-                  <div class="view">
+                <div class="com-xl-9" id="main_area"; style="height: 70vh; border-radius: 20px;";>          <!-- Main area column -->
+                  <div class="view bg-dar">
                     <img src="{% static 'images/imgs/devino.png' %}">
 
                   </div>
