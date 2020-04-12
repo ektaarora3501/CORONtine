@@ -19,6 +19,6 @@ In tough times like this when the whole country is in lockdown state, there are 
 ![Data Flow Diagram](https://github.com/coder-KO/Dev.ino_HackCovid19/blob/master/DFD.png)
 
 ### Check our DOCS for more understanding
-https://github.com/coder-KO/Dev.ino_HackCovid19/blob/master/CORONtine.pdf
+https://github.com/ektaarora3501/CORONtine/blob/master/CORONtine.pdf
 
 By team Dev.ino
