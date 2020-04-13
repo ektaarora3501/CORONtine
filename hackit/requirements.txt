@@ -9,7 +9,7 @@ Markdown==2.6.6
 bleach==1.4.3
 psycopg2==2.6.1
 whitenoise==3.2
-tensorflow==1.14
+tensorflow==1.15.2
 keras==2.2.4
 opencv-python
 
